@@ -23,11 +23,11 @@ public class URLTemplateController {
 		System.out.println("id value = "+id);
 		System.out.println("age value = "+age);
 //		return "forward:/view.jsp";
-		return "forward:../../../view.jsp"; // view.jsp가 WEB-INF 안에 있기 때문에 25행처럼 forward로 바로 루트에 접근하듯이 /(슬래쉬)를 하나만 써도 된다.
+		return "../../view"; // 서블릿 콘텍스트에 .jsp가 suffix로 붙어있기 때문에 jsp생략이 가능하며 view.jsp위치가 webapp이라서 2번 올라가준다(../../)
+//		return "forward:../../../view.jsp"; // view.jsp가 WEB-INF 안에 있기 때문에 25행처럼 forward로 바로 루트에 접근하듯이 /(슬래쉬)를 하나만 써도 된다.
 		// 그런데 URL의 주소가 urlTest.do/{id}/home/{age} 이렇게 되어있기 때문에 요청값인 urlTest.do/를 제외하고 {id}와 home과 {age}를 건너 뛰고 view.jsp로 접근할 수 있기 때문에 
 		// ../../../view.jsp 과 같이 3개의 칸을 올라가야 view.jsp에 닿을 수 있다.
 	}
-	
 	/*
 	 * @RequestMapping("getData2.do")// 확인을 위한 url :
 	 * http://localhost:8080/mvc/getData2.do?name=busanKYJ&age=32 public String
